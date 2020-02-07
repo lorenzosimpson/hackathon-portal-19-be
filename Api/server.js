@@ -13,14 +13,14 @@ server.use(cors());
 
 var jwtCheck = jwt({
    secret: jwks.expressJwtSecret({
-      cache: true,
-      rateLimit: true,
-      jwksRequestsPerMinute: 5,
-      jwksUri: 'https://hackathonportal.auth0.com/.well-known/jwks.json'
-   }),
-   audience: 'https://hackathon-portal.herokuapp.com/',
-   issuer: 'https://hackathonportal.auth0.com/',
-   algorithms: ['RS256']
+       cache: true,
+       rateLimit: true,
+       jwksRequestsPerMinute: 5,
+       jwksUri: 'https://dev-9qtopu1h.auth0.com/.well-known/jwks.json'
+ }),
+ audience: 'https://hackathon-portal-labs-19.herokuapp.com/',
+ issuer: 'https://dev-9qtopu1h.auth0.com/',
+ algorithms: ['RS256']
 });
 
 server.use('/api', jwtCheck, apiRouter)
